@@ -1,0 +1,66 @@
+{
+  "properties": {
+    "progress": {
+      "title": "Progress",
+      "description": "This extension will allow DNV to show more precise information about the progress of a contracting process.",
+      "$ref": "#/definitions/Progress"
+    }
+  },
+  "required": null,
+  "definitions": {
+    "Value": {
+      "title": "Value",
+      "description": "Financial values and currency for the certificate.",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "title": "Amount",
+          "description": "Amount as a number.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "currency": {
+          "title": "Currency",
+          "description": "The currency for each amount should always be specified using the uppercase 3-letter currency code from ISO4217.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "Progress": {
+      "title": "Progress",
+      "description": "The progress section is used to publish information about the progress of a contracting process.",
+      "type": "object",
+      "properties": {
+        "advancePercentage": {
+          "title": "Advance Percentage",
+          "description": "The progress percentage for the project.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "actualValue": {
+          "title": "Value",
+          "description": "The current value of the contracting process.",
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/Value"
+          }
+        },
+        "investmentValue": {
+          "title": "Value",
+          "description": "The invested value of the contracting process.",
+          "type": "object",
+          "items": {
+            "$ref": "#/definitions/Value"
+          }
+        }
+      }
+    }
+  }
+}
